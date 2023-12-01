@@ -1,26 +1,23 @@
 public class Player {
-  private String name;
+  private String PlayerName;
   //Характеристики
-  public int health;
-  public int damage;
+  public int PlayerHealth;
+  public int PlayerDamage;
 
-  public double min = 0;
-  public double max = 1;
-  public double stamina;
+  public double PlayerStamina;
 
-  public double armor;
-  public double accuracy;
-  // инвентарь
- // ArrayList<Item> inventoryList = new ArrayList<>();
+  public double PlayerArmor;
+  public double PlayerAccuracy;
 
 
-  Player(String name){
-    this.name = name;
-    this.armor = 0.85;
-    this.health = 120;
-    this.damage = 60;
-    this.stamina = (double) (Math.random()*(max-min+1)+min);
-    this.accuracy = (double) (Math.random()*(max-min+1)+min);
+
+  Player(String PName,double PArm, int PDmg, double PStm, double PAcur, int PHealth){
+    this.PlayerName = PName;
+    this.PlayerArmor = PArm;
+    this.PlayerHealth = PHealth;
+    this.PlayerDamage = PDmg;
+    this.PlayerStamina = PStm;
+    this.PlayerAccuracy = PAcur;
 
   }
 }

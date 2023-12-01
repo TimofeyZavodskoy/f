@@ -1,27 +1,24 @@
 import java.util.ArrayList;
 
 public class Enemy {
-    private String name;
-    //Характеристики
-    public int health;
-    public int damage;
+    private String EnemyName;
 
-    public double min = 0;
-    public double max = 1;
-    public double stamina;
+    public int EnemyHealth;
+    public int EnemyDamage;
+    public double EnemyStamina;
 
-    public double armor;
-    public double accuracy;
-    //ArrayList<ItemEnemy> inventoryList = new ArrayList<>();
+    public double EnemyArmor;
+    public double EnemyAccuracy;
 
 
-    Enemy(String name) {
-        this.name = name;
-        this.armor = 0.54;
-        this.health = 250;
-        this.damage = 20;
-        this.stamina = (double) (Math.random() * (max - min + 1) + min);
-        this.accuracy = (double) (Math.random() * (max - min + 1) + min);
+
+    Enemy(String EName, int EHealth, int EDmg, double EStam, double EArm, double EAcc) {
+        this.EnemyName = EName;
+        this.EnemyHealth = EHealth;
+        this.EnemyDamage = EDmg;
+        this.EnemyStamina = EStam;
+        this.EnemyArmor = EArm;
+        this.EnemyAccuracy = EAcc;
     }
 
 }
