@@ -2,15 +2,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Battle {
-    public static void main(String[] args) {
+
+    public void startBattle() {
+
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-
-        int playerHealth = 100;
-        int enemyHealth = 100;
-        int playerDamage = 10; // Базовый урон игрока
-
-        while (playerHealth > 0 && enemyHealth > 0) {
+        while (playerHealth > 0 && EnemyHealth > 0) {
             System.out.println("Меню боя:");
             System.out.println("1. Попытаться атаковать");
             System.out.println("2. Покинуть бой");
@@ -23,7 +20,7 @@ public class Battle {
                 case 1:
                     int enemyDamage = random.nextInt(15) + 1;
 
-                    enemyHealth -= playerDamage;
+                    EnemyHealth -= playerHealth;
                     playerHealth -= enemyDamage;
 
                     System.out.println("Вы атаковали противника и получили урон от его ответного удара.");
@@ -46,7 +43,7 @@ public class Battle {
                             System.out.println("Вы восстановили здоровье с помощью заклинания.");
                             break;
                         case 2:
-                            enemyHealth -= spellPower;
+                            EnemyHealth -= spellPower;
                             System.out.println("Вы атаковали противника силой заклинания.");
                             break;
                         case 3:
@@ -71,8 +68,8 @@ public class Battle {
                             }
                             break;
                         case 2:
-                            if (playerDamage + 10 <= 30) {
-                                playerDamage += 10;
+                            if (playerHealth + 10 <= 30) {
+                                playerHealth += 10;
                                 System.out.println("Вы купили улучшенное оружие.");
                             } else {
                                 System.out.println("Ваше оружие уже максимально улучшено.");
@@ -83,11 +80,14 @@ public class Battle {
                 default:
                     System.out.println("Некорректный ввод. Попробуйте еще раз.");
             }
+            if (EnemyHealth < 0){
+                EnemyHealth = 0; }
 
             System.out.println("Здоровье игрока: " + playerHealth);
-            System.out.println("Здоровье противника: " + enemyHealth);
+            System.out.println("Здоровье противника: " + EnemyHealth);
             System.out.println();
         }
+
 
         if (playerHealth <= 0) {
             System.out.println("Вы проиграли бой.");
